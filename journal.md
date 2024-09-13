@@ -203,7 +203,7 @@
 
 **Résumé :** Pour des programmes plus grands, utilisez Cargo pour gérer les options de compilation et le partage de code.
 **Question :** Pourquoi est-il recommandé d'utiliser Cargo pour des programmes Rust plus grands ?
-### Hello, Cargo!
+## Hello, Cargo!
 
 **Résumé :** Cargo est le système de compilation et de gestion de paquets de Rust, facilitant la compilation et la gestion des dépendances.
 **Question :** Quelles tâches Cargo gère-t-il pour les projets Rust ?
@@ -255,3 +255,292 @@
 
 **Résumé :** Résumé des apprentissages : installation de Rust, mise à jour, documentation locale, programme “Hello, world!”, et utilisation de Cargo.
 **Question :** Quels sont les principaux apprentissages de ce chapitre sur l'installation et l'utilisation de Rust et Cargo ?
+## Programmer le jeu du plus ou du moins
+
+**Résumé :** Ce chapitre présente des concepts courants en Rust à travers la création d'un jeu du plus ou du moins.
+**Question :** Quels concepts courants en Rust seront abordés dans ce chapitre ?
+
+**Résumé :** Le jeu consiste à deviner un nombre entre 1 et 100, avec des indications si le nombre est trop grand ou trop petit.
+**Question :** Quel est le principe du jeu du plus ou du moins ?
+
+**Résumé :** Utilisez Cargo pour créer un nouveau projet nommé jeu_du_plus_ou_du_moins.
+**Question :** Quelle commande utilisez-vous pour créer un nouveau projet avec Cargo ?
+
+**Résumé :** Le fichier Cargo.toml généré contient les informations de configuration du projet.
+**Question :** Que contient le fichier Cargo.toml généré par Cargo ?
+
+
+**Résumé :** Compilez et exécutez le programme “Hello, world!” avec la commande cargo run.
+**Question :** Quelle commande permet de compiler et d'exécuter le programme “Hello, world!” en une seule étape ?
+
+**Résumé :** Ouvrez le fichier src/main.rs pour écrire le code du jeu du plus ou du moins.
+**Question :** Dans quel fichier allez-vous écrire le code du jeu du plus ou du moins ?
+
+**Résumé :** Importez la bibliothèque std::io pour gérer la saisie utilisateur.
+**Question :** Quelle bibliothèque devez-vous importer pour gérer la saisie utilisateur en Rust ?
+
+**Résumé :** La fonction main est le point d'entrée du programme et affiche des messages à l'écran.
+**Question :** Quelle est la fonction spéciale qui sert de point d'entrée dans un programme Rust ?
+
+**Résumé :** Créez une variable mutable pour stocker la saisie de l'utilisateur avec let mut supposition = String::new().
+**Question :** Comment créez-vous une variable mutable pour stocker la saisie de l'utilisateur en Rust ?
+
+**Résumé :** Utilisez io::stdin().read_line(&mut supposition) pour lire la saisie utilisateur.
+**Question :** Quelle méthode utilisez-vous pour lire la saisie utilisateur en Rust ?
+
+**Résumé :** La méthode read_line retourne un io::Result, qui peut être Ok ou Err.
+**Question :** Quelle est la valeur de retour de la méthode read_line en Rust ?
+
+**Résumé :** Utilisez la méthode expect pour gérer les erreurs potentielles lors de la lecture de la saisie utilisateur.
+**Question :** Quelle méthode utilisez-vous pour gérer les erreurs potentielles lors de la lecture de la saisie utilisateur ?
+
+**Résumé :** Utilisez println! pour afficher la saisie utilisateur avec des espaces réservés {}.
+**Question :** Comment affichez-vous des valeurs dynamiques dans une chaîne de caractères en Rust ?
+
+
+**Résumé :** Testez le programme en utilisant la commande cargo run pour vérifier que la saisie utilisateur est correctement affichée.
+
+**Question :** Quelle commande utilisez-vous pour tester le programme et vérifier que la saisie utilisateur est correctement affichée ?
+
+### Génération d'un Nombre Secret
+**Résumé :** Ce paragraphe explique qu'il faut générer un nombre secret aléatoire entre 1 et 100 pour un jeu, et comment la crate rand de Rust, qui n'est pas incluse dans la bibliothèque standard, permet de le faire.
+**Question :** Quelle crate Rust est utilisée pour générer un nombre aléatoire dans ce jeu ?
+
+### Extension des Fonctionnalités avec une Crate
+**Résumé :** Ce paragraphe décrit ce qu'est une crate en Rust et comment rand est une crate de bibliothèque qui ne peut pas être exécutée seule. Il mentionne aussi la coordination des crates externes via Cargo.
+**Question :** Quelle est la différence entre une crate binaire et une crate de bibliothèque en Rust ?
+
+### Ajout de Dépendance dans Cargo.toml
+**Résumé :** Ce paragraphe montre comment ajouter rand comme dépendance dans le fichier Cargo.toml et précise la version exacte à utiliser pour éviter les problèmes de compatibilité.
+**Question :** Pourquoi on ajoute la crate rand au fichier Cargo.toml ?
+
+### Processus de Compilation avec Cargo
+**Résumé :** Après avoir ajouté une dépendance externe, Cargo télécharge et compile les crates nécessaires. Ce paragraphe décrit le processus de compilation avec la sortie typique de cargo build.
+**Question :** Que fait Cargo après avoir ajouté une nouvelle dépendance et exécuté cargo build pour la première fois ?
+
+### Répétabilité des Compilations avec Cargo.lock
+**Résumé :** Le fichier Cargo.lock est créé pour garantir la reproductibilité des compilations en conservant les versions exactes des dépendances utilisées.
+**Question :** Quel est le rôle du fichier Cargo.lock dans la gestion des dépendances de Rust ?
+
+### Mise à Jour des Crates
+**Résumé :** Ce paragraphe explique comment mettre à jour les crates en utilisant la commande cargo update, qui ignore le fichier Cargo.lock et cherche des versions plus récentes qui respectent les critères spécifiés dans Cargo.toml.
+**Question :** Que se passe-t-il lorsque vous exécutez cargo update sur un projet Rust ?
+
+### Mise à Jour vers une Nouvelle Version Majeure
+**Résumé :** Ce paragraphe indique que pour mettre à jour vers une nouvelle série de versions majeures d'une crate, vous devez modifier le fichier Cargo.toml. Il suggère que des informations supplémentaires sur Cargo seront couvertes plus tard.
+**Question :** Comment mettre à jour une crate vers une nouvelle série de versions majeures en Rust ?
+### Générer un nombre aléatoire
+**Résumé :** Ce paragraphe explique comment utiliser la crate rand pour générer un nombre aléatoire dans le jeu.
+**Question :** Quelle crate Rust est utilisée pour générer un nombre aléatoire dans ce jeu ?
+
+### Ajout du code pour générer un nombre aléatoire
+**Résumé :** Ce paragraphe montre comment modifier src/main.rs pour inclure la génération d'un nombre aléatoire.
+**Question :** Quelle méthode de la crate rand est utilisée pour générer un nombre aléatoire ?
+
+### Utilisation de rand::Rng
+**Résumé :** Le trait Rng définit les méthodes pour les générateurs de nombres aléatoires, et il doit être importé pour être utilisé.
+**Question :** Pourquoi devons-nous importer le trait Rng dans notre code ?
+
+### Génération du nombre aléatoire
+**Résumé :** La fonction rand::thread_rng génère un générateur de nombres aléatoires pour le fil d'exécution courant.
+**Question :** Quelle fonction de la crate rand génère un générateur de nombres aléatoires pour le fil d'exécution courant ?
+
+### Affichage du nombre secret
+**Résumé :** Afficher le nombre secret est utile pour les tests, mais sera supprimé dans la version finale.
+**Question :** Pourquoi affichons-nous le nombre secret pendant le développement ?
+
+### Tester le programme
+**Résumé :** Ce paragraphe montre comment tester le programme pour vérifier que des nombres aléatoires différents sont générés.
+**Question :** Quelle commande utilisez-vous pour tester le programme et vérifier que des nombres aléatoires différents sont générés ?
+
+### Comparer le nombre saisi au nombre secret
+**Résumé :** Ce paragraphe explique comment comparer la saisie utilisateur au nombre secret en utilisant std::cmp::Ordering.
+**Question :** Quelle énumération est utilisée pour comparer la saisie utilisateur au nombre secret ?
+
+### Utilisation de std::cmp::Ordering
+**Résumé :** Le type Ordering a trois variantes : Less, Greater, et Equal, pour comparer deux valeurs.
+**Question :** Quelles sont les trois variantes de l'énumération Ordering ?
+
+### Expression match
+**Résumé :** Une expression match compare une valeur à plusieurs motifs et exécute le code correspondant au motif correspondant.
+**Question :** Comment une expression match fonctionne-t-elle en Rust ?
+
+### Erreur de compilation
+**Résumé :** Le code ne compile pas encore car Rust ne peut pas comparer une chaîne de caractères à un nombre.
+**Question :** Pourquoi le code ne compile-t-il pas encore ?
+
+### Conversion de la chaîne en nombre
+**Résumé :** Ce paragraphe explique comment convertir la chaîne de caractères en un nombre pour la comparaison.
+**Question :** Pourquoi devons-nous convertir la chaîne de caractères en un nombre ?
+
+### Masquage des variables
+**Résumé :** Le masquage permet de réutiliser le nom de variable supposition pour la conversion en nombre.
+**Question :** Qu'est-ce que le masquage (shadowing) en Rust ?
+
+### Utilisation de trim et parse
+**Résumé :** La méthode trim enlève les espaces et parse convertit la chaîne en nombre.
+**Question :** Que font les méthodes trim et parse sur une chaîne de caractères ?
+
+### Gestion des erreurs avec parse
+**Résumé :** La méthode parse retourne un Result, et expect gère les erreurs potentielles.
+**Question :** Que retourne la méthode parse et comment gérons-nous les erreurs potentielles ?
+
+### Test du programme
+**Résumé :** Ce paragraphe montre comment tester le programme après avoir ajouté la conversion de la chaîne en nombre.
+**Question :** Quelle commande utilisez-vous pour tester le programme après avoir ajouté la conversion de la chaîne en nombre ?
+
+### Ajout d'une boucle pour plusieurs suppositions
+**Résumé :** Ce paragraphe explique comment ajouter une boucle pour permettre plusieurs suppositions.
+**Question :** Quel mot-clé crée une boucle infinie en Rust ?
+
+### Problème de la boucle infinie
+**Résumé :** Le programme demande un nombre à l'infini, ce qui pose un problème.
+**Question :** Quel est le problème avec la boucle infinie dans le programme ?
+
+### Arrêter le programme avec ctrl-c
+**Résumé :** L'utilisateur peut interrompre le programme avec ctrl-c ou en saisissant une valeur non numérique.
+**Question :** Comment l'utilisateur peut-il interrompre le programme ?
+
+### Arrêter le programme après avoir gagné
+**Résumé :** Ce paragraphe explique comment arrêter le programme après que l'utilisateur a deviné le bon nombre en utilisant break.
+**Question :** Quelle instruction permet de sortir de la boucle après avoir deviné le bon nombre ?
+
+### Gérer les saisies invalides
+**Résumé :** Ce paragraphe montre comment gérer les saisies invalides en utilisant une expression match.
+**Question :** Comment le programme gère-t-il les saisies invalides ?
+
+### Test du programme avec saisies invalides
+**Résumé :** Ce paragraphe montre comment tester le programme pour vérifier qu'il gère correctement les saisies invalides.
+**Question :** Quelle commande utilisez-vous pour tester le programme après avoir ajouté la gestion des saisies invalides ?
+
+### Code final du jeu du plus ou du moins
+**Résumé :** Ce paragraphe présente le code final du jeu du plus ou du moins sans afficher le nombre secret.
+**Question :** Quelle est la dernière étape pour finaliser le jeu du plus ou du moins ?
+
+## Les Concepts courant de programmation
+
+**Résumé :** Les concepts présentés ne sont pas spécifiques à Rust, mais nous les appliquerons à Rust et expliquerons les conventions associées.
+**Question :** Les concepts présentés dans ce chapitre sont-ils spécifiques à Rust ?
+
+**Résumé :** Vous allez apprendre les concepts de variables, types de base, fonctions, commentaires, et structures de contrôle.
+**Question :** Quels concepts fondamentaux allez-vous apprendre dans ce chapitre ?
+
+## Les variables et la mutabilité
+
+**Résumé :** Par défaut, les variables en Rust sont immuables, ce qui aide à garantir la sécurité et la concurrence, mais elles peuvent être rendues mutables si nécessaire.
+**Question :** Pourquoi Rust favorise-t-il l'immuabilité des variables par défaut ?
+
+### Immuabilité des variables
+
+**Résumé :** Lorsqu'une variable est immuable, sa valeur ne peut pas être changée après avoir été assignée.
+**Question :** Que signifie l'immuabilité d'une variable en Rust ?
+
+### Création d'un nouveau projet
+
+**Résumé :** Créez un nouveau projet appelé variables pour explorer l'immutabilité et la mutabilité des variables.
+**Question :** Quelle commande utilisez-vous pour créer un nouveau projet en Rust ?
+
+### Exemple de code immuable
+
+**Résumé :** Ce code montre une tentative de modification d'une variable immuable, ce qui entraîne une erreur de compilation.
+**Question :** Que se passe-t-il lorsque vous essayez de modifier une variable immuable en Rust ?
+
+### Message d'erreur de compilation
+
+**Résumé :** Le message d'erreur indique qu'il est impossible d'assigner deux fois une variable immuable.
+**Question :** Que signifie l'erreur de compilation "cannot assign twice to immutable variable" ?
+
+### Importance des erreurs de compilation
+
+**Résumé :** Les erreurs de compilation aident à identifier les problèmes de sécurité et de logique dans le code.
+**Question :** Pourquoi les erreurs de compilation sont-elles importantes en Rust ?
+
+### Mutabilité des variables
+
+**Résumé :** La mutabilité peut être utile et facilite la rédaction du code, mais elle doit être explicitement déclarée avec mut.
+**Question :** Comment rendez-vous une variable mutable en Rust ?
+
+### Exemple de code mutable
+
+**Résumé :** Ce code montre comment rendre une variable mutable et modifier sa valeur.
+**Question :** Comment modifiez-vous la valeur d'une variable mutable en Rust ?
+
+### Exécution du programme avec une variable mutable
+
+**Résumé :** En utilisant mut, la valeur de x peut être modifiée de 5 à 6.
+**Question :** Quelle est la sortie du programme lorsque la variable x est mutable et sa valeur est modifiée ?
+
+### Compromis entre immuabilité et mutabilité
+
+**Résumé :** La mutabilité peut prévenir les bogues et améliorer les performances, mais l'immutabilité peut rendre le code plus clair.
+**Question :** Quels sont les compromis entre l'immutabilité et la mutabilité des variables en Rust ?
+
+### Les constantes
+
+**Résumé :** Les constantes sont des valeurs immuables déclarées avec le mot-clé const et doivent toujours avoir un type spécifié.
+**Question :** Comment déclare-t-on une constante en Rust ?
+
+### Immuabilité des constantes
+
+**Résumé :** Les constantes sont toujours immuables et ne peuvent pas être modifiées après leur déclaration.
+**Question :** Les constantes en Rust peuvent-elles être rendues mutables ?
+
+### Déclaration des constantes
+
+**Résumé :** Les constantes peuvent être déclarées n'importe où dans le code, y compris dans la portée globale.
+**Question :** Où peut-on déclarer des constantes en Rust ?
+
+### Expressions constantes
+
+**Résumé :** Les constantes doivent être définies par des expressions constantes et non par des valeurs calculées à l'exécution.
+**Question :** Par quoi doivent être définies les constantes en Rust ?
+
+### Exemple de déclaration de constante
+
+**Résumé :** Cet exemple montre comment déclarer une constante en utilisant une expression constante.
+**Question :** Comment déclare-t-on une constante représentant trois heures en secondes en Rust ?
+
+### Utilité des constantes
+
+**Résumé :** Les constantes sont utiles pour des valeurs partagées par plusieurs parties du programme, comme des limites ou des constantes physiques.
+**Question :** Pourquoi les constantes sont-elles utiles dans un programme Rust ?
+
+### Avantages des constantes
+
+**Résumé :** Déclarer des valeurs codées en dur comme constantes rend le code plus compréhensible et facilite les mises à jour.
+**Question :** Quels sont les avantages de déclarer des valeurs codées en dur comme constantes ?
+
+### Le masquage
+
+**Résumé :** Le masquage permet de réutiliser le nom d'une variable en déclarant une nouvelle variable avec le même nom.
+**Question :** Qu'est-ce que le masquage en Rust ?
+
+### Exemple de masquage
+
+**Résumé :** Cet exemple montre comment le masquage fonctionne en réutilisant le nom d'une variable pour effectuer des transformations.
+**Question :** Comment fonctionne le masquage dans l'exemple donné ?
+
+### Différence entre masquage et mutabilité
+
+**Résumé :** Le masquage est différent de la mutabilité car il permet de réutiliser le nom de la variable sans la rendre mutable.
+**Question :** Quelle est la différence entre le masquage et la mutabilité en Rust ?
+
+### Changement de type avec le masquage
+
+**Résumé :** Le masquage permet de changer le type d'une variable tout en réutilisant le même nom.
+**Question :** Comment le masquage permet-il de changer le type d'une variable en Rust ?
+
+### Exemple de changement de type
+
+**Résumé :** Cet exemple montre comment utiliser le masquage pour changer le type d'une variable de chaîne de caractères à nombre.
+**Question :** Comment le masquage est-il utilisé pour changer le type d'une variable dans l'exemple donné ?
+
+### Erreur de compilation avec mutabilité
+
+**Résumé :** Utiliser mut pour changer le type d'une variable entraîne une erreur de compilation.
+**Question :** Que se passe-t-il si vous essayez de changer le type d'une variable mutable en Rust ?
+
+### Types de données
+
+**Résumé :** Maintenant que nous avons vu comment fonctionnent les variables, nous allons étudier les types de données qu'elles peuvent prendre.
+**Question :** Quelle est la prochaine section après avoir étudié les variables en Rust ?

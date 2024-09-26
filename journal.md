@@ -544,3 +544,84 @@
 
 **Résumé :** Maintenant que nous avons vu comment fonctionnent les variables, nous allons étudier les types de données qu'elles peuvent prendre.
 **Question :** Quelle est la prochaine section après avoir étudié les variables en Rust ?
+#### nombre entiers
+**Résumé :**  il existe 12 types de nombres entiers
+**Question :**  Combien de nombre d'entiers existe t-il ?
+
+#### Types scalaires
+***Résumé*** : Un type scalaire représente une seule valeur. Rust possède quatre types principaux de scalaires : les entiers, les nombres à virgule flottante, les booléens et les caractères.
+ ***Question*** : Quels sont les quatre types principaux de scalaires en Rust ?
+
+#### Types de nombres entiers
+***Résumé*** : Un entier est un nombre sans partie décimale. Rust offre plusieurs types d'entiers, signés et non signés, avec des tailles allant de 8 bits à 128 bits, ainsi que des types dépendant de l'architecture (isize et usize). 
+***Question*** : Quelle est la différence entre un entier signé et un entier non signé en Rust ?
+
+#### Dépassement d'entier
+***Résumé*** : En cas de dépassement d'entier, Rust peut paniquer en mode débogage ou effectuer un rebouclage en mode publication. Il existe des méthodes pour gérer explicitement les dépassements d'entiers. 
+***Question*** : Que se passe-t-il en cas de dépassement d'entier en mode débogage et en mode publication en Rust ?
+
+#### Types de nombres à virgule flottante
+***Résumé*** : Rust possède deux types de nombres à virgule flottante : f32 et f64. Le type par défaut est f64 car il est plus précis et presque aussi rapide que f32 sur les processeurs modernes. 
+***Question*** : Quels sont les deux types de nombres à virgule flottante en Rust et lequel est utilisé par défaut ?
+
+#### Les opérations numériques
+***Résumé*** : Rust offre des opérations mathématiques de base pour tous les types de nombres : addition, soustraction, multiplication, division et modulo.
+ ***Question*** : Quelles sont les opérations mathématiques de base disponibles en Rust ?
+
+#### Le type booléen
+***Résumé*** : Le type booléen en Rust, désigné par bool, peut avoir deux valeurs : true et false. Il est principalement utilisé dans les structures conditionnelles. 
+***Question ***: Quelles sont les deux valeurs possibles pour un type booléen en Rust ?
+
+#### Le type caractère
+***Résumé***: Le type char en Rust représente une valeur scalaire Unicode et prend quatre octets en mémoire. Il peut représenter plus de caractères que l'ASCII, y compris les emoji et les caractères accentués. 
+***Question** : Quelle est la taille en mémoire d'un type char en Rust et que peut-il représenter ?
+
+#### Le type tuple
+***Résumé*** : Un tuple regroupe plusieurs valeurs de types différents en un seul type composé. Les tuples ont une taille fixe et peuvent être déstructurés pour accéder à leurs éléments. 
+***Question*** : Comment accède-t-on aux éléments d'un tuple en Rust ?
+
+#### Le type tableau
+**Résumé*** : Un tableau en Rust contient plusieurs valeurs du même type et a une taille fixe. Les tableaux sont utiles pour des données allouées sur la pile ou lorsque le nombre d'éléments est fixe. 
+***Question*** : Quelle est la différence entre un tableau et un vecteur en Rust ?
+
+#### Accéder aux éléments d'un tableau
+***Résumé** : Vous pouvez accéder aux éléments d'un tableau en utilisant l'indexation. Rust vérifie que l'indice est valide pour éviter les erreurs d'accès mémoire.
+***Question*** : Comment accède-t-on aux éléments d'un tableau en Rust et que se passe-t-il si l'indice est invalide ?
+
+#### Accès incorrect à un élément d'un tableau
+***Résumé** : Si vous essayez d'accéder à un élément en dehors des limites du tableau, Rust va paniquer et arrêter l'exécution du programme pour éviter des erreurs d'accès mémoire. 
+***Question*** : Que se passe-t-il si vous essayez d'accéder à un élément en dehors des limites d'un tableau en Rust ?
+
+### Les fonctions
+***Résumé*** : Les fonctions sont très utilisées en Rust. La fonction main est le point d'entrée de nombreux programmes. Les fonctions sont définies avec le mot-clé fn et utilisent le style de nommage snake case. ***Question*** : Quel mot-clé est utilisé pour définir une fonction en Rust ?
+
+### Exemple de définition de fonction
+***Résumé*** : Les fonctions sont définies avec fn suivi du nom de la fonction et d'une paire de parenthèses. Les accolades délimitent le corps de la fonction. Les fonctions peuvent être appelées depuis n'importe où dans le code. Question : Comment appelle-t-on une fonction définie dans un programme Rust ?
+
+### Les paramètres
+***Résumé*** : Les fonctions peuvent avoir des paramètres, qui sont des variables spéciales faisant partie de la signature de la fonction. Les paramètres doivent avoir un type explicitement déclaré.***Question*** : Pourquoi est-il nécessaire de déclarer le type des paramètres dans une fonction en Rust ?
+
+### Exemple de fonction avec paramètres
+***Résumé*** : Les paramètres sont déclarés dans la signature de la fonction. Lors de l'appel de la fonction, des valeurs concrètes (arguments) sont passées aux paramètres. ***Question*** : Comment passe-t-on des valeurs concrètes à une fonction avec des paramètres en Rust ?
+
+### Instructions et expressions
+***Résumé*** : Les instructions effectuent des actions et ne retournent aucune valeur, tandis que les expressions sont évaluées pour retourner une valeur. Rust est un langage basé sur des expressions.
+***Question*** : Quelle est la différence entre une instruction et une expression en Rust ?
+
+### Exemple d'instruction et d'expression
+***Résumé***: La création d'une variable avec let est une instruction. Les expressions peuvent faire partie d'une instruction. Les expressions n'ont pas de point-virgule de fin de ligne. 
+***Question*** : Pourquoi les expressions en Rust n'ont-elles pas de point-virgule de fin de ligne ?
+
+### Les fonctions qui retournent des valeurs
+***Résumé*** : Les fonctions peuvent retourner des valeurs. La valeur de retour est la même que la valeur de l'expression finale dans le corps de la fonction. Le type de retour est déclaré après une flèche (->). ***Question*** : Comment déclare-t-on le type de retour d'une fonction en Rust ?
+
+### Exemple de fonction qui retourne une valeur
+***Résumé*** : Une fonction peut retourner une valeur sans utiliser le mot-clé return. La dernière expression du corps de la fonction est la valeur de retour. 
+***Question*** : Comment une fonction en Rust retourne-t-elle une valeur sans utiliser le mot-clé return ?
+
+### Erreur de types inadéquats
+***Résumé*** : Si une fonction déclare un type de retour mais ne retourne pas de valeur (ou retourne une valeur du mauvais type), Rust génère une erreur de types inadéquats.
+***Question*** : Que se passe-t-il si une fonction en Rust déclare un type de retour mais ne retourne pas de valeur ?
+
+### Les commentaires
+Résumé : Les commentaires en Rust commencent par // et continuent jusqu'à la fin de la ligne. Pour les commentaires multi-lignes, chaque ligne doit commencer par //. Les commentaires peuvent être ajoutés à la fin d'une ligne de code ou sur une ligne séparée. Question : Comment écrit-on un commentaire en Rust ?

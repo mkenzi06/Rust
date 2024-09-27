@@ -1,124 +1,21 @@
 fn main() {
-    let gifts = [
-        "
-        On the first day of Christmas
-        my true love sent to me
-        a partridge in a pear tree.",
+    let mut s = String::from("hello world");
 
-        "On the second day of Christmas,
-        my true love sent to me
-        Two turtle doves,
-        and a partridge in a pear tree.",
+    let mot = premier_mot(&s); // la variable mot aura 5 comme valeur.
+    println!("Le premier mot est: {}", mot);
+    s.clear(); // ceci vide la String, elle vaut maintenant "".
 
-        "On the third day of Christmas,
-        my true love sent to me
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree.",
+    // mot a toujours la valeur 5 ici, mais il n'y a plus de chaîne qui donne
+    // du sens à la valeur 5. mot est maintenant complètement invalide !
+}
+fn premier_mot(s: &String) -> usize {
+    let octets = s.as_bytes();
 
-        "On the fourth day of Christmas,
-        my true love sent to me
-        Four calling birds,
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree.",
-
-        "On the fifth day of Christmas,
-        my true love sent to me
-        Five golden rings,
-        Four calling birds,
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree."
-
-        ,"On the sixth day of Christmas,
-        my true love sent to me
-        Six geese a-laying,
-        Five golden rings,
-        Four calling birds,
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree.",
-
-
-        "On the seventh day of Christmas,
-        my true love sent to me
-        Seven swans a-swimming,
-        Six geese a-laying,
-        Five golden rings,
-        Four calling birds,
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree.",
-
-        "On the eighth day of Christmas,
-        my true love sent to me
-        Eight maids a-milking,
-        Seven swans a-swimming,
-        Six geese a-laying,
-        Five golden rings,
-        Four calling birds,
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree.",
-
-        "On the ninth day of Christmas,
-        my true love sent to me
-        Nine ladies dancing,
-        Eight maids a-milking,
-        Seven swans a-swimming,
-        Six geese a-laying,
-        Five golden rings,
-        Four calling birds,
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree.",
-
-        "On the tenth day of Christmas,
-        my true love sent to me
-        Ten lords a-leaping,
-        Nine ladies dancing,
-        Eight maids a-milking,
-        Seven swans a-swimming,
-        Six geese a-laying,
-        Five golden rings,
-        Four calling birds,
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree.",
-
-        "On the eleventh day of Christmas,
-        my true love sent to me
-        Eleven pipers piping,
-        Ten lords a-leaping,
-        Nine ladies dancing,
-        Eight maids a-milking,
-        Seven swans a-swimming,
-        Six geese a-laying,
-        Five golden rings,
-        Four calling birds,
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree.",
-
-        "On the twelfth day of Christmas,
-        my true love sent to me
-        Twelve drummers drumming,
-        Eleven pipers piping,
-        Ten lords a-leaping,
-        Nine ladies dancing,
-        Eight maids a-milking,
-        Seven swans a-swimming,
-        Six geese a-laying,
-        Five golden rings,
-        Four calling birds,
-        Three French hens,
-        Two turtle doves,
-        And a partridge in a pear tree!"
-    ];
-
-    for i in 0..gifts.len() {
-        println!("{}", gifts[i]);
-        println!(); 
+    for (i, &element) in octets.iter().enumerate() {
+        if element == b' ' {
+            return i;
+        }
     }
+
+    s.len()
 }

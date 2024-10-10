@@ -1,21 +1,11 @@
-fn main() {
-    let mut s = String::from("hello world");
-
-    let mot = premier_mot(&s); // la variable mot aura 5 comme valeur.
-    println!("Le premier mot est: {}", mot);
-    s.clear(); // ceci vide la String, elle vaut maintenant "".
-
-    // mot a toujours la valeur 5 ici, mais il n'y a plus de chaîne qui donne
-    // du sens à la valeur 5. mot est maintenant complètement invalide !
-}
-fn premier_mot(s: &String) -> usize {
-    let octets = s.as_bytes();
-
-    for (i, &element) in octets.iter().enumerate() {
-        if element == b' ' {
-            return i;
-        }
-    }
-
-    s.len()
+fn seulement_positif(v: i32) -> Option<i32> {
+	if v < 0 {
+		None
+	} else {
+		Some(v)
+	}
+}fn main() {
+    // Tests
+    println!("{:?}", seulement_positif(-5)); // Affiche None
+    println!("{:?}", seulement_positif(3));  // Affiche Some(3)
 }

@@ -88,35 +88,51 @@ valeurs durant une seule et même exécution."
 - Proposer une expression à mettre à la place des points d'intérrogation afin que le programme suivant compile et affiche "Yes" à l'exécution.
 
   ```rust
-	fn main() {
-	    let x = ???;
-		if x.2[x.1].0 {
-			println!("Yes");
-		} else {
-			println!("No");
-		}
-	}
+        fn main() {
+            let x = (
+                0, 
+                1, 
+                vec![
+                    (false,), 
+                    (true,),  
+                ],
+            );
+
+            if x.2[x.1].0 {
+                println!("Yes");
+            } else {
+                println!("No");
+            }
+        }
 	```
 - Transformer le code précédent en une fonction recevant en paramètre la valeur de x.
   ```rust
-	fn main() {
-	    let x = ???;
-		if x.2[x.1].0 {
-			println!("Yes");
-		} else {
-			println!("No");
-		}
-	}
+        fn main() {
+            let x = (
+                0,
+                1, 
+                vec![
+                    (false,), 
+                    (true,),  
+                ],
+            );
+
+            check_value(x);
+        }
+
+        fn check_value(x: (i32, usize, Vec<(bool,)>)) {
+            println!("{}", if x.2[x.1].0 { "Yes" } else { "No" });
+        }
 	```
 - Modifier la fonction pour qu'elle prenne un paramètre la valeur de x et retourne un booléen au lieu d'afficher un message. Faites le bien "à la Rust", en suivant le style indiqué dans le chapitre.
     ```rust
 	fn main() {
-	    let x = x = (
-        0, // Un entier quelconque
-        1, // Index pour accéder à l'élément dans le tableau
+	    let x = (
+        0, 
+        1, 
         vec![
-            (false,), // Premier élément du vecteur
-            (true,),  // Deuxième élément du vecteur
+            (false,), 
+            (true,),  
         ],
     ); 
 		if x.2[x.1].0 {
@@ -142,7 +158,7 @@ valeurs durant une seule et même exécution."
         non il existe plusieurs manieres de faire des commentaires.
 - Dans le code suivant, que faut-il mettre à la place des parenthèses pour que le code de la fonction compile (on ignorera les warnings):
 	```rust
-	fn blabla(x: i32) -> ??? {
+	fn blabla(x: i32) -> i32 {
 		x + x
 	}
 	```
@@ -152,14 +168,19 @@ valeurs durant une seule et même exécution."
         Un if sans else est également une expression. Bien qu'il ne retourne pas de valeur par défaut s'il ne se produit pas, il peut toujours être utilisé dans un contexte d'expression
 - Remanier le code suivant afin de n'avoir qu'un seul appel à `println!` et aucune variable supplémentaire.
     ```rust
-	fn main() {
-	    let x = ???;
-		if x.2[x.1].0 {
-			println!("Yes");
-		} else {
-			println!("No");
-		}
-	}
+        fn main() {
+            let x = (
+                8, 
+                1, 
+                vec![
+                    (false,), 
+                    (true,),  
+                ],
+            );
+
+            println!("{}", if x.2[x.1].0 { "Yes" } else { "No" });
+        }
+	
 	```
 - A quoi servent les étiquettes de boucle ?
         Les étiquettes de boucle servent à nommer une boucle pour pouvoir y faire référence depuis une instruction break ou continue.
